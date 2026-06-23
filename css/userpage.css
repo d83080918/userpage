@@ -1,0 +1,82 @@
+  :root {
+            /* =========================
+     Brand Colors
+     ========================= */
+            --color-primary: #4f7cff;
+            /* 主色 - 科技藍 */
+            --color-primary-hover: #6b91ff;
+            --color-primary-light: #dbe5ff;
+
+            --color-secondary: #7c4dff;
+            /* 輔色 - 未來感紫 */
+            --color-secondary-hover: #936dff;
+            --color-secondary-light: #ebe3ff;
+
+            --color-accent: #00d4ff;
+            /* 強調色 - 資訊亮藍 */
+            --color-success: #22c55e;
+            --color-warning: #f59e0b;
+            --color-danger: #ef4444;
+
+            /* =========================
+     Text Colors
+     ========================= */
+            --text-primary: #f8fafc;
+            /* 主要文字 */
+            --text-secondary: #94a3b8;
+            /* 次要文字 */
+            --text-muted: #64748b;
+            /* 提示文字 */
+            --text-disabled: #475569;
+
+            --text-on-primary: #ffffff;
+            --text-on-secondary: #ffffff;
+
+            /* =========================
+     Background Colors
+     ========================= */
+            --bg-primary: #0f172a;
+            /* 主背景 */
+            --bg-secondary: #1e293b;
+            /* 卡片背景 */
+            --bg-tertiary: #334155;
+            /* 區塊背景 */
+            --bg-hover: #293548;
+
+            /* =========================
+     Surface / Card
+     ========================= */
+            --surface-primary: #111827;
+            --surface-secondary: #1f2937;
+            --surface-elevated: #273449;
+
+            /* =========================
+     Border Colors
+     ========================= */
+            --border-primary: #334155;
+            --border-secondary: #475569;
+            --border-focus: #4f7cff;
+
+            /* =========================
+     Gradient Colors
+     ========================= */
+            --gradient-primary: linear-gradient(135deg,
+                    #4f7cff 0%,
+                    #7c4dff 100%);
+
+            --gradient-accent: linear-gradient(135deg,
+                    #00d4ff 0%,
+                    #4f7cff 100%);
+
+            /* =========================
+     Shadow Colors
+     ========================= */
+            --shadow-primary: rgba(79, 124, 255, 0.25);
+            --shadow-secondary: rgba(124, 77, 255, 0.25);
+
+            /* =========================
+     Glow Effect
+     ========================= */
+            --glow-primary: 0 0 20px rgba(79, 124, 255, 0.4);
+            --glow-secondary: 0 0 20px rgba(124, 77, 255, 0.4);
+        }

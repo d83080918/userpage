@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切版練習</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 品牌色 */
+        :root {
+            --primary: #2F6B4F;
+            --secondary: #F4A261;
+            --text: #2B2B2B;
+            --bg: #F5F1E8;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+        }
+
+        /* 主容器 */
+        .wrapper {
+            width: 1024px;
+            margin: 25px auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Banner 圖 */
+        .imgbox {
+            width: 1024px;
+            height: 260px;
+
+            background-image: url(images/mountain-1.avif);
+            background-position: center center;
+            background-size: cover;
+
+            position: relative;
+        }
+
+        /* 增加深色遮罩讓畫面更有質感 */
+        .imgbox::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        /* 導覽列 */
+        nav {
+            background-color: var(--primary);
+            text-align: center;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        nav ul {
+            display: inline-block;
+        }
+
+        nav ul li {
+            float: left;
+            list-style-type: none;
+        }
+
+        nav ul li a {
+            display: block;
+
+            text-decoration: none;
+
+            background-color: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+
+            margin-right: 15px;
+
+            padding: 10px 18px;
+
+            border-radius: 30px;
+
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+
+            transition: all 0.35s ease;
+
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 最後一個不要有右邊距 */
+        nav ul li:last-child a {
+            margin-right: 0;
+        }
+
+        /* hover效果 */
+        nav ul li a:hover {
+            background-color: var(--secondary);
+            color: var(--text);
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 內容區 */
+        .content {
+            background-color: #ffffff;
+
+            text-align: center;
+
+            padding-top: 45px;
+            padding-bottom: 50px;
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        /* 標題 */
+        .content h1 {
+            color: var(--primary);
+
+            font-size: 42px;
+
+            padding-top: 10px;
+            padding-bottom: 25px;
+
+            letter-spacing: 3px;
+        }
+
+        /* 內文 */
+        .content p {
+            font-size: 18px;
+
+            color: #555;
+
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            text-align: justify;
+        }
+
+        /* 按鈕 */
+        .content a {
+            display: inline-block;
+
+            background-color: var(--secondary);
+
+            width: 160px;
+            height: 50px;
+
+            margin-top: 25px;
+
+            text-decoration: none;
+
+            color: var(--text);
+
+            font-size: 18px;
+            font-weight: bold;
+
+            line-height: 50px;
+
+            border-radius: 50px;
+
+            transition: all 0.35s ease;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* hover按鈕 */
+        .content a:hover {
+            background-color: var(--primary);
+
+            color: #ffffff;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        /* footer */
+        .footer {
+            background-color: var(--primary);
+
+            text-align: center;
+
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .footer p {
+            font-size: 16px;
+
+            font-weight: bold;
+
+            color: #ffffff;
+
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- # id . class -->
+    <div class="wrapper">
+        <div class="banner">
+            <div class="imgbox"></div>
+            <nav>
+                <ul>
+                    <li><a href="http://google.com.tw">首頁</a></li>
+                    <li><a href="">最新資訊</a></li>
+                    <li><a href="">合作店家</a></li>
+                    <li><a href="">聯絡資訊</a></li>
+                    <li><a href="">關於</a></li>
+                </ul>
+            </nav>
+            <!-- nav>ul>li*5>a -->
+        </div>
+        <div class="content">
+            <h1>歡迎光臨</h1>
+            <P>山峰是大自然中最壯麗的景觀之一，無論高聳入雲的雪山，還是綠意盎然的小山丘，都展現出獨特的魅力。山峰經過長時間的地殼運動與自然侵蝕形成，不僅塑造了地球的地貌，也孕育了豐富的生態環境。許多動植物依靠山區生存，而高山氣候也與平地截然不同。人們常因山峰的壯觀景色而受到吸引，無論是遠觀還是親身攀登，都能感受到大自然的雄偉與力量。
+            </P>
+            <P>對許多人而言，登山不只是運動，更是一種挑戰自我與放鬆心靈的方式。沿著蜿蜒的山路前進，人們能欣賞森林、溪流與雲海等自然景觀，也能在攀登過程中鍛鍊體力與耐力。當成功抵達山頂時，看見遼闊的景色與日出晨曦，往往令人充滿成就感。許多知名山峰更成為旅遊勝地，吸引來自世界各地的旅人前往探索，感受山林帶來的寧靜與感動。
+            </P>
+            <p>山峰除了具有觀光與休閒價值外，也在文化與歷史中扮演重要角色。許多民族將山視為神聖之地，流傳著各種傳說與故事。例如，有些山峰被認為是神靈居住的地方，因此成為祭祀與朝聖的重要場所。此外，山區也提供珍貴的水資源與自然資源，對人類生活有深遠影響。然而，隨著觀光活動增加，山林環境也面臨破壞與污染問題。因此，我們在親近山峰的同時，也應重視環境保護，讓這片美麗的大自然能夠長久保存。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="footer">
+            <P>練習 2026.05.28</P>
+        </div>
+    </div>
+</body>
+
+</html>
