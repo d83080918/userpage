@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上課資料</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/userpage.css">
+
+    <style>
+        /* ===== 科技風配色 ===== */
+        :root {
+            --tech-bg: #0F172A;
+            --tech-card: #1E293B;
+            --tech-primary: #06B6D4;
+            --tech-secondary: #3B82F6;
+            --tech-text: #E2E8F0;
+            --tech-muted: #94A3B8;
+        }
+
+        body {
+            margin: 0;
+            background: var(--tech-bg);
+            color: var(--tech-text);
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+
+        /* ==========================
+           Hero Section
+        ========================== */
+
+        .s01 {
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg,
+                    #0F172A,
+                    #111827,
+                    #1E293B);
+            overflow: hidden;
+        }
+
+        .s01 .box01,
+        .s01 .box02,
+        .s01 .box03,
+        .s01 .box04 {
+            width: 200px;
+            height: 200px;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .s01 .box01 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .s01 .box02 {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .s01 .box03 {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .s01 .box04 {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .s01 .userImg {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            left: 100px;
+            bottom: 100px;
+
+            background-image: url(images/people.avif);
+            background-position: center;
+            background-size: cover;
+
+            border-radius: 30px;
+
+            border: 2px solid var(--tech-primary);
+
+            box-shadow:
+                0 0 20px rgba(6, 182, 212, 0.5),
+                0 0 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .userText {
+            position: absolute;
+            top: 40%;
+            left: 10%;
+            right: 60%;
+            z-index: 10;
+        }
+
+        .userText h1 {
+            font-size: 48px;
+            color: white;
+            text-shadow: 0 0 15px var(--tech-primary);
+        }
+
+        .userText h2 {
+            color: var(--tech-primary);
+        }
+
+        .userText p {
+            color: var(--tech-text);
+            line-height: 1.8;
+        }
+
+        .userText hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right,
+                    var(--tech-primary),
+                    transparent);
+        }
+
+        /* ==========================
+           Portfolio
+        ========================== */
+
+        .s02 {
+            padding: 80px 10%;
+            text-align: center;
+            background: #111827;
+        }
+
+        .s02 h2 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        /* 新增共用 class */
+        .tech-card {
+            display: inline-block;
+            width: 240px;
+
+            background: var(--tech-card);
+
+            margin: 15px;
+            padding: 25px;
+
+            text-align: left;
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(6, 182, 212, 0.3);
+
+            transition: all .3s;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 0 20px rgba(6, 182, 212, .4),
+                0 0 40px rgba(59, 130, 246, .2);
+        }
+
+        .tech-card h3 {
+            color: var(--tech-primary);
+            margin-top: 0;
+        }
+
+        .tech-card p {
+            color: var(--tech-muted);
+            line-height: 1.8;
+        }
+
+        .tech-card a {
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: white;
+
+            background: linear-gradient(135deg,
+                    var(--tech-primary),
+                    var(--tech-secondary));
+
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            margin-top: 10px;
+
+            transition: all .3s;
+        }
+
+        .tech-card a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(6, 182, 212, .8);
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="s01">
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04"></div>
+
+        <div class="userImg"></div>
+
+        <div class="userText">
+            <h1>黃小小履歷</h1>
+            <hr>
+            <h2>應徵職位：軟體工程師</h2>
+
+            <p>
+                到我外觀一片規模開放居民一股，是我城市，感興趣仍然兄弟群發最佳社會主義不敢有關部門電力，
+                不滿今日死亡一句現金市政府緊張，有着企業依據創造後悔故事，未知一個小孩大學生。
+            </p>
+        </div>
+    </section>
+
+    <section class="s02">
+        <h2>我的作品</h2>
+
+        <div class="card01 tech-card">
+            <h3>切版練習</h3>
+            <p>使用 HTML、CSS 進行切版練習</p>
+            <a href="20260527-1-ai.html" target="_blank">查看作品</a>
+        </div>
+
+        <div class="card02 tech-card">
+            <h3>Table 排版</h3>
+            <p>使用 HTML、CSS 進行切版練習</p>
+            <a href="20260605-ch5-ai.html" target="_blank">查看作品</a>
+        </div>
+
+        <div class="card03 tech-card">
+            <h3>Form</h3>
+            <p>使用 HTML、CSS 進行切版練習</p>
+            <a href="20260625-ch11-forms-js.html" target="_blank">查看作品</a>
+        </div>
+
+        <div class="card04 tech-card">
+            <h3>作品 4</h3>
+            <p>使用 HTML、CSS 進行切版練習</p>
+            <a href="#" target="_blank">查看作品</a>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
