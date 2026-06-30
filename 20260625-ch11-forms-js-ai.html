@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP產品建檔</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: #eef2f7;
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+
+        .erp-title {
+            background: #1f4e79;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+        }
+
+        .erp-card {
+            background: #fff;
+            border: 1px solid #d6dce5;
+            border-radius: 6px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+        }
+
+        .erp-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .form-control,
+        .form-select {
+            height: 46px;
+            border-radius: 3px;
+            border: 1px solid #bfc8d4;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            box-shadow: none;
+            border-color: #1f4e79;
+        }
+
+        .erp-section {
+            border: 1px solid #d9d9d9;
+            padding: 15px;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+
+        .erp-subtitle {
+            color: #1f4e79;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .btn {
+            border-radius: 3px;
+            min-width: 120px;
+        }
+
+        .btn-primary {
+            background: #1f4e79;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #173a59;
+        }
+
+        .btn-secondary {
+            background: #808080;
+            border: none;
+        }
+
+        #message {
+            background: #fff;
+            border: 1px solid #d6dce5;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+        }
+
+        #showmessage {
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        /*=========== ERP確認畫面 ===========*/
+
+        .erp-message {
+            background: #ffffff;
+            border: 1px solid #cfd8e3;
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+        }
+
+        .erp-message-title {
+            background: #1f4e79;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 4px;
+            letter-spacing: 2px;
+        }
+
+        .erp-message-body {
+            background: #f8f9fb;
+            border: 1px solid #d7dde5;
+            border-radius: 5px;
+            padding: 15px 20px;
+        }
+
+        .erp-item {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 14px 0;
+            border-bottom: 1px solid #dfe5eb;
+            font-size: 18px;
+        }
+
+        .erp-item:last-child {
+            border-bottom: none;
+        }
+
+        .erp-label2 {
+            width: 150px;
+            font-weight: 700;
+            color: #1f4e79;
+        }
+
+        .erp-value {
+            color: #444;
+            flex: 1;
+        }
+
+        .erp-btn {
+            height: 46px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .erp-btn.btn-primary {
+            background: #1f4e79;
+            border: none;
+        }
+
+        .erp-btn.btn-primary:hover {
+            background: #173a59;
+        }
+
+        .erp-btn.btn-secondary {
+            background: #7a7a7a;
+            border: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <div class="col-7 erp-title text-center mb-4">產品建檔</div>
+            <div class="col-md-7 erp-card">
+                <label for="pname" class="erp-label mb-2">產品名稱</label>
+                <div class="mb-3 form-floating">
+                    <input type="text" class="form-control" id="pname">
+                    <label for="pname">產品名稱(字數1~6)</label>
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+                <div class="mb-3">
+                    <label for="pnum" class="erp-label">數量(1~10)</label>
+                    <input type="text" class="form-control" id="pnum" value="1">
+                    <div class="valid-feedback">數字正確</div>
+                    <div class="invalid-feedback">數字不正確</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="ptaste" class="erp-label">產品規格</label>
+                    <input type="text" class="form-control" id="ptaste" list="taste" placeholder="請選擇規格">
+                    <datalist id="taste">
+                        <option value="散裝"></option>
+                        <option value="袋裝"></option>
+                        <option value="盒裝"></option>
+                    </datalist>
+
+                    <div class="valid-feedback">產品規格選擇正確</div>
+                    <div class="invalid-feedback">產品規格選擇不正確</div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="psize" class="erp-label">份量</label>
+                    <select id="psize" class="form-select">
+                        <option selected disabled>請選擇份量</option>
+                        <option>特大(2KG)</option>
+                        <option>大(1KG)</option>
+                        <option>中(0.5KG)</option>
+                        <option>小(0.2KG以下)</option>
+                    </select>
+                    <div class="valid-feedback">已選擇份量</div>
+                    <div class="invalid-feedback">請選擇份量</div>
+
+                </div>
+                <div class="erp-section mb-4">
+                    <div class="mb-3 form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="pstatus">
+                        <label class="form-check-label" id="pstatus_text">目前狀態：下架</label>
+                    </div>
+                </div>
+                <div class="erp-section mb-4">
+                    <div class="erp-subtitle">可加配料（至少一項）</div>
+
+                    <div id="topping_group">
+                        <div class="form-check">
+                            <input class="form-check-input topping_item" type="checkbox" value="芋頭">
+                            <label class="form-check-label">芋頭</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input topping_item" type="checkbox" value="珍珠">
+                            <label class="form-check-label">珍珠</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input topping_item" type="checkbox" value="花生">
+                            <label class="form-check-label">花生</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input topping_item" type="checkbox" value="芋圓">
+                            <label class="form-check-label">芋圓</label>
+                        </div>
+                    </div>
+                    <div class="valid-feedback">配料已選擇</div>
+                    <div class="invalid-feedback">至少要加一種配料</div>
+                </div>
+                <div class="erp-section mb-4">
+                    <div class="erp-subtitle">供應方式</div>
+                    <div id="topping_group2" class="is-invalid">
+                        <div class="form-check">
+                            <input class="form-check-input topping_item2" type="radio" value="冷飲" name="2">
+                            <label class="form-check-label">冷飲</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input topping_item2" type="radio" value="熱飲" name="2">
+                            <label class="form-check-label">熱飲</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input topping_item2" type="radio" value="冷熱皆可" name="2">
+                            <label class="form-check-label">冷熱皆可</label>
+                        </div>
+                    </div>
+                    <div class="valid-feedback">已選擇</div>
+                    <div class="invalid-feedback">請選擇一種</div>
+                </div>
+                <div class="text-end">
+                    <button class="btn btn-secondary">取消</button>
+                    <button class="btn btn-primary" id="ok_btn">確認</button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-7 mt-4 d-none erp-message justify-content-center" id="message">
+                <div class="display-6 text-center erp-message-title py-3 mb-4">訂單明細確認</div>
+                <div>
+                    <div id="showmessage" class="mb-4 erp-message-body"></div>
+
+                    <button class="btn btn-secondary erp-btn w-100">取消</button>
+                    <button class="btn btn-primary erp-btn w-100 mt-3">確定送出</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let flag_pname = false;
+        let flag_pnum = false;
+        let flag_ptaste = false;
+        let flag_psize = false;
+        let flag_topping = false;
+        let flag_topping2 = false;
+
+        $(function () {
+            // 監聽#pname
+            $("#pname").on("input", function () {
+                console.log($(this).val().length);
+                let pname = $(this).val().trim();
+
+                if (pname.length >= 1 & pname.length <= 6) {
+                    // 符合規定
+                    $(this).addClass("is-valid")
+                    $(this).removeClass("is-invalid")
+                    flag_pname = true;
+                }
+                else {
+                    //不符合規定
+                    $(this).removeClass("is-valid")
+                    $(this).addClass("is-invalid")
+                    flag_pname = false;
+                }
+            });
+            // 監聽#pnum 數字記得使用Number()
+            $("#pnum").on("input", function () {
+                console.log($(this).val());
+                let pnum = Number($(this).val());
+                if (pnum >= 1 & pnum <= 10) {
+                    // 符合規定
+                    $(this).addClass("is-valid")
+                    $(this).removeClass("is-invalid")
+                    flag_pnum = true;
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid")
+                    $(this).addClass("is-invalid")
+                    flag_pnum = false;
+                }
+            });
+            // 監聽#ptaste
+            $("#ptaste").on("input", function () {
+                console.log($(this).val());
+                let ptaste = $(this).val().trim();
+
+                if (ptaste == "散裝" || ptaste == "袋裝" || ptaste == "盒裝") {
+                    // 符合規定
+                    $(this).addClass("is-valid")
+                    $(this).removeClass("is-invalid")
+                    flag_ptaste = true;
+                }
+                else {
+                    //不符合規定
+                    $(this).removeClass("is-valid")
+                    $(this).addClass("is-invalid")
+                    flag_ptaste = false;
+                }
+            });
+            // 監聽#psize
+            $("#psize").on("change", function () {
+                console.log($(this).val());
+                let psize = $(this).val().trim();
+                if (psize != "") {
+                    // 符合規定
+                    $(this).addClass("is-valid")
+                    $(this).removeClass("is-invalid")
+                    flag_psize = true;
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid")
+                    $(this).addClass("is-invalid")
+                    flag_psize = false;
+                }
+            });
+            // 監聽#pstatus 
+            $("#pstatus").on("change", function () {
+                console.log($(this).prop("checked"));
+
+                let pstatus = $(this).prop("checked");
+
+                if (pstatus) {
+                    $("#pstatus_text").text("目前狀態:上架");
+                } else {
+                    $("#pstatus_text").text("目前狀態:下架");
+                }
+            });
+            // 監聽.topping_item
+            $(".topping_item").on("change", function () {
+                console.log($(".topping_item:checked").length);
+                let count = $(".topping_item:checked").length;
+                if (count > 0) {
+                    $("#topping_group").addClass("is-valid")
+                    $("#topping_group").removeClass("is-invalid")
+                    flag_topping = true;
+                } else {
+                    $("#topping_group").removeClass("is-valid")
+                    $("#topping_group").addClass("is-invalid")
+                    flag_topping = false;
+                }
+            });
+            // 監聽 topping_item2 radio
+            $(".topping_item2").on("change", function () {
+                console.log($(".topping_item2:checked").length);
+                if ($(".topping_item2:checked").length > 0) {
+                    $("#topping_group2").addClass("is-valid")
+                    $("#topping_group2").removeClass("is-invalid")
+                    flag_topping2 = true;
+                } else {
+                    $("#topping_group2").removeClass("is-valid")
+                    $("#topping_group2").addClass("is-invalid")
+                    flag_topping2 = false;
+                }
+            });
+            // 按鈕監聽
+            $("#ok_btn").on("click", function () {
+                console.log("HELLO");
+                if (flag_pname && flag_pnum && flag_psize && flag_ptaste && flag_topping && flag_topping2) {
+
+                    $("#message").removeClass("d-none");
+
+                    // 三元運算子
+                    let pstatus = $("#pstatus").prop("checked") ? "上架" : "下架";
+
+                    // 收集可加配料
+                    let toppingArray = [];
+                    $(".topping_item:checked").each(function () {
+                        console.log($(this).val());
+                        toppingArray.push($(this).val());
+                    });
+                    console.log(toppingArray);
+
+                    let toppingArray2 = $(".topping_item2:checked").val();
+
+
+                    //顯示飲料產品清單明細，join會自動轉字串
+                    let strHTML = `<h3 class="erp-item">
+                        <span class="erp-label2">產品名稱</span>
+                        <span class="erp-value">${$("#pname").val()}</span>
+                    </h3>
+                    <h3 class="erp-item">
+                        <span class="erp-label2">產品數量</span>
+                        <span class="erp-value">${$("#pnum").val()}</span>
+                    </h3>
+                    <h3 class="erp-item">
+                        <span class="erp-label2">產品規格</span>
+                        <span class="erp-value">${$("#ptaste").val()}</span>
+                    </h3>
+                    <h3 class="erp-item">
+                        <span class="erp-label2">產品份量</span>
+                        <span class="erp-value">${$("#psize").val()}</span>
+                    </h3>
+                    <h3 class="erp-item">
+                        <span class="erp-label2">目前狀態</span>
+                        <span class="erp-value">${pstatus}</span>
+                    </h3>
+                    <h3 class="erp-item">
+                        <span class="erp-label2">選取配料</span>
+                        <span class="erp-value">${toppingArray.join(", ")}</span>
+                    </h3>
+                    <h3 class="erp-item">
+                        <span class="erp-label2">供應方式</span>
+                        <span class="erp-value">${toppingArray2}</span>
+                    </h3>`;
+                    $("#showmessage").html(strHTML);
+                } else {
+                    Swal.fire({
+                        title: "欄位錯誤",
+                        text: "欄位錯誤，請修正!",
+                        icon: "error"
+                    });
+                    $("#message").addClass("d-none");
+                }
+                //顯示飲料產品清單明細
+            });
+        });
+    </script>
+</body>
+
+</html>
